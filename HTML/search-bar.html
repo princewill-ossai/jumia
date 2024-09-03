@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Bar</title>
+    <style>
+      #results {
+        list-style-type: none;
+        padding: 0;
+      }
+      #results li {
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="searchBar" placeholder="Search..." />
+    <ul id="results">
+      <li>Apple</li>
+      <li>Banana</li>
+      <li>Orange</li>
+      <li>Pineapple</li>
+      <li>Strawberry</li>
+    </ul>
+
+    <script>
+      document
+        .getElementById("searchBar")
+        .addEventListener("keyup", function () {
+          let input = document.getElementById("searchBar").value.toLowerCase();
+          let items = document.querySelectorAll("#results li");
+
+          items.forEach(function (item) {
+            if (item.textContent.toLowerCase().includes(input)) {
+              item.style.display = "";
+            } else {
+              item.style.display = "none";
+            }
+          });
+        });
+    </script>
+  </body>
+</html>
